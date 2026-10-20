@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gatinho Apaixonado</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- =====================================
+         TELA INICIAL
+    ====================================== -->
+
+    <section id="tela-inicial" class="tela ativa">
+
+        <img
+            src="fundoinicial.jpg"
+            alt="Tela inicial do Gatinho Apaixonado"
+        >
+
+       <button class="botao-imagem" onclick="mostrarTela('tela-intro')">
+    <img src="botaoinicial.png" alt="Abrir">
+</button>
+
+    </section>
+
+
+
+    <!-- =====================================
+         INTRODUÇÃO
+    ====================================== -->
+
+    <section id="tela-intro" class="tela">
+         <img src="teladois.jpeg" class="fundo-intro">
+
+
+       <div class="caixa-texto">
+
+    <img src="caixadetextoteladois.png" class="fundo-caixa">
+
+    <div class="conteudo-caixa">
+
+        <h1>
+            Antes de continuar...
+        </h1>
+
+        <p>
+            Eu poderia ter colocado aqui tudo aquilo que sinto por você, 
+            mas achei<br> que algumas coisas deveriam continuar existindo
+            no papel. Então isso<br> aqui não é só uma carta. É outra coisa. Um 
+            pequeno lugar que eu fiz para<br> guardar você.
+        </p>
+
+       <button 
+    class="botao-imagem"
+    id="botao-seta"
+    onclick="abrirJogo()"
+>
+    <img src="setapular.png" alt="Continuar">
+</button>
+
+    </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PRIMEIRO JOGO
+    ====================================== -->
+
+    <section id="tela-jogo1" class="tela">
+
+        <div class="jogo-espacial">
+
+
+            <!-- PLACAR -->
+
+            <div class="placar">
+
+                <span id="vidas"></span>
+
+                <span id="informacoes-jogo">
+                    LEVEL 1 |
+                    SCORE: 0 |
+                    0 / 10
+                </span>
+
+            </div>
+
+
+
+            <!-- CANVAS DO JOGO -->
+
+            <canvas id="jogo"></canvas>
+
+
+
+            <!-- =================================
+                 TELA INICIAL DA MISSÃO
+            ================================== -->
+
+            <div
+    id="inicio-missao"
+    class="tela-missao"
+>
+
+    <h1>
+        MISSÃO 01
+    </h1>
+
+    <p class="objetivo-missao">
+        DESTRUA 10 ASTEROIDES
+    </p>
+
+
+    <div class="controles-missao">
+
+        <div class="linha-teclas">
+
+
+            <img
+                src="seta-direita.png"
+                alt="Direita"
+            >
+            <img
+                src="seta-esquerda.png"
+                alt="Esquerda"
+            >
+        </div>
+
+
+        <div class="texto-ou">
+            OU
+        </div>
+
+
+        <div class="linha-teclas">
+
+            <img
+                src="tecla-a.png"
+                alt="A"
+            >
+
+            <img
+                src="tecla-d.png"
+                alt="D"
+            >
+
+        </div>
+
+    </div>
+
+
+    <p class="controle-tiro">
+        <img
+            src="tecla-space.png"
+            alt="Espaço"
+        >
+        PARA ATIRAR
+    </p>
+
+
+    <button onclick="comecarMissao()">
+        PRESS TO START
+    </button>
+
+</div>
+
+
+            <!-- =================================
+                 FASE CONCLUÍDA
+            ================================== -->
+
+            <div
+                id="missao-concluida"
+                class="tela-missao escondida"
+            >
+
+                <h1 id="titulo-missao">
+                     FASE CONCLUÍDA! 
+                </h1>
+
+                <p id="texto-missao">
+                    Prepare-se para a próxima fase.
+                </p>
+
+                <button
+                    id="botao-missao"
+                    onclick="continuarMissao()"
+                >
+                    CONTINUAR
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================
+                 GAME OVER
+            ================================== -->
+
+            <div
+                id="game-over"
+                class="tela-missao escondida"
+            >
+
+                <h1>
+                     GAME OVER 
+                </h1>
+
+                <p>
+                    A tempestade espacial venceu
+                    dessa vez...
+                </p>
+
+                <button onclick="reiniciarJogo()">
+                    TENTAR NOVAMENTE
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SEGUNDO JOGO
+    ====================================== -->
+
+    <!-- ========================================
+     ENIGMA 1 — CIFRA DE CÉSAR
+======================================== -->
+
+<section id="tela-enigma1" class="tela">
+
+    <div class="enigma">
+
+        <h1> ENIGMA 01</h1>
+
+        <p class="subtitulo">
+            Uma mensagem foi encontrada, mas suas letras
+            parecem estar fora do lugar...
+        </p>
+
+
+        <!-- PISTAS -->
+
+        <div class="pistas">
+
+            <div class="pista">
+                <strong>14:00</strong>
+            </div>
+
+            <div class="pista">
+                "Às vezes, o tempo também pode ser contado em letras."
+            </div>
+            <div class="pista">
+        "Se você avançou demais, talvez precise voltar apenas o olhar."
+    </div>
+
+        
+
+        </div>
+
+
+        <!-- MENSAGEM CRIPTOGRAFADA -->
+
+        <div class="mensagem-box">
+
+            <h2> Mensagem encontrada</h2>
+
+            <p id="mensagem-criptografada">
+
+                Eiobrc o dcfho gs tsqvof, bãc dfcqifs o goíro. Dfcqifs oeiwzc eis dsfaobsqs sgqcbrwrc eiobrc hcro o xobszo sghá jonwo. O qvojs ro oçãc rsjs sghof s oeiwzc eis dofsqs odsbog rsqcfoçãc uiofro c qoawbvc dofo oeiwzc eis jcqê dfcqifo. Cpgsfjs c eis tcw qczcqorc tcfo rc ziuof, qcbhs oeiwzc eis bwbuiéa sbqcbhfci s bãc qcbtws bo dfwaswfo qcwgo eis gsi czvof sbqcbhfof.
+
+            </p>
+
+        </div>
+
+
+        <!-- RESPOSTA -->
+
+        <div class="resposta-box">
+
+            <h2>Decifre a mensagem</h2>
+
+            <textarea
+                id="resposta-enigma1"
+                placeholder="Digite aqui a mensagem decifrada..."
+                spellcheck="false"
+            ></textarea>
+
+            <button
+                class="botao-imagem"
+                id="botao-verificar-enigma1"
+            >
+                 <img src="decodificarbotao.png" alt="Descobrir">
+            </button>
+
+        </div>
+
+
+        <!-- MENSAGEM DE RESULTADO -->
+
+        <p
+            id="resultado-enigma1"
+            class="resultado"
+        ></p>
+
+
+        <!-- CONTINUAR -->
+
+        <button
+            class="botao-imagem escondido"
+            id="botao-continuar-enigma1"
+        >
+            <img src="continuarbatao.png" alt="Continuar">
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     ENIGMA 2 — O QUADRO
+====================================== -->
+
+<section id="tela-enigma2" class="tela">
+
+    <div class="enigma2">
+
+        <h1> ENIGMA 02</h1>
+
+        <p class="subtitulo-enigma2">
+            Nem tudo que está diante dos seus olhos
+            pertence à mesma história.
+        </p>
+
+
+        <!-- QUADRO -->
+<div class="quadro">
+
+    <!-- IMAGEM DO CENÁRIO -->
+    <img
+        src="cenario.jfif"
+        class="imagem-cenario-enigma2"
+        alt=""
+    >
+
+    <!-- IMAGEM COM A CHAVE -->
+<img
+    src="objetos.png"
+    class="imagem-objetos-enigma2 imagem-objetos-com-chave"
+    alt=""
+>
+
+<!-- IMAGEM SEM A CHAVE -->
+<img
+    src="semchave.png"
+    class="imagem-objetos-enigma2 imagem-objetos-sem-chave escondida"
+    alt=""
+>
+<!-- FLOR -->
+    <button
+    class="area-clique flor"
+    onclick="abrirPistaQuadro('flor')"
+    aria-label="Flor"
+></button>
+
+    <!-- CHAVE -->
+    <button
+        class="area-clique chave"
+        onclick="abrirPistaQuadro('chave')"
+        aria-label="Chave"
+    ></button>
+
+    <!-- JANELA -->
+    <button
+        class="area-clique janela"
+        onclick="abrirPistaQuadro('janela')"
+        aria-label="Janela"
+    ></button>
+
+    <!-- LUA -->
+    <button
+        class="area-clique lua"
+        onclick="abrirPistaQuadro('lua')"
+        aria-label="Lua"
+    ></button>
+
+    <!-- RELÓGIO -->
+    <button
+        class="area-clique relogio"
+        onclick="abrirPistaQuadro('relogio')"
+        aria-label="Relógio"
+    ></button>
+
+</div>
+
+        <!-- PISTA -->
+
+        <div
+            id="janela-pista-quadro"
+            class="janela-pista escondida"
+        >
+
+            <h2 id="titulo-pista-quadro">
+                Pista
+            </h2>
+
+            <p id="texto-pista-quadro">
+                ...
+            </p>
+
+            <button
+                class="botao"
+                onclick="fecharPistaQuadro()"
+            >
+                FECHAR
+            </button>
+
+        </div>
+
+
+        <!-- CHAVE ENCONTRADA -->
+
+        <div
+            id="chave-encontrada"
+            class="chave-encontrada escondida"
+        >
+
+            <h2> CHAVE ENCONTRADA</h2>
+
+            <p>
+                Você encontrou aquilo que estava
+                fora do lugar.
+            </p>
+
+            <p>
+                Mas uma chave só é útil quando
+                encontramos aquilo que ela pode abrir.
+            </p>
+
+            
+
+
+        <!-- CONTINUAR PARA ENIGMA 3 -->
+
+       <button
+    id="botao-continuar-enigma2"
+    class="botao-imagem escondido"
+    onclick="irParaEnigma3()"
+>
+    <img
+        src="continuarbatao.png"
+        alt="Continuar"
+    >
+</button>
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ENIGMA 3 — AS PORTAS
+====================================== -->
+
+<section id="tela-enigma3" class="tela">
+
+    <div class="enigma">
+
+        <h1> ENIGMA 03</h1>
+
+        <p class="subtitulo">
+            A chave parece funcionar...
+            mas alguma coisa ainda está escondida.
+        </p>
+
+
+        <!-- SEQUÊNCIA -->
+
+<div class="mensagem-box">
+
+    <h2> A sequência encontrada</h2>
+
+    <p>
+        03 — 17 — 21 — 14
+    </p>
+
+    <p>
+        <em>
+            “Não leia o que encontrou.
+            Leia o que perdeu.”
+        </em>
+    </p>
+
+</div>
+
+        <!-- PORTAS -->
+
+        <div class="portas">
+
+    <button class="porta" onclick="escolherPorta('A')">
+    <img src="portaA.png" alt="Porta A">
+</button>
+
+<button class="porta" onclick="escolherPorta('B')">
+    <img src="portaB.png" alt="Porta B">
+</button>
+
+<button class="porta" onclick="escolherPorta('C')">
+    <img src="portaC.png" alt="Porta C">
+</button>
+</div>
+
+        <!-- RESULTADO -->
+
+        <p
+            id="resultado-porta"
+            class="resultado"
+        ></p>
+
+
+        <!-- VOLTAR AO QUADRO -->
+
+        <button
+    class="botao-imagem botao-voltar-quadro"
+    onclick="voltarAoQuadro()"
+    aria-label="Voltar ao quadro"
+>
+    <img src="botaoback.png" alt="Voltar ao quadro">
+</button>
+
+
+        <!-- FINAL DO ENIGMA -->
+
+        <button
+    id="botao-final-enigma3"
+    class="botao-imagem botao-continuar-final escondido"
+    onclick="finalizarEnigma3()"
+    aria-label="Continuar"
+>
+    <img src="continuarbatao.png" alt="Continuar">
+</button>
+    </div>
+
+</section>
+
+
+    <!-- =====================================
+         FOTOS
+    ====================================== -->
+
+<section id="tela-fotos" class="tela">
+
+    <h1 class="titulo-fotos">NOSSOS MOMENTOS</h1>
+
+
+
+    <div class="album-fotos">
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fotoum.png" alt="Nossa foto 1">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Gosto muito de ter você na minha vida. Acho que você já sabe disso, mas nunca é demais falar.
+                        </span>
+                       
+                    </span>
+                </span>
+            </span>
+        </button>
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fotodois.png" alt="Nossa foto 2">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Eu gosto de quem eu sou quando tô com você. Acho que isso significa bastante.
+                        </span>
+                       
+                    </span>
+                </span>
+            </span>
+        </button>
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fototres.png" alt="Nossa foto 3">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Não sei muito bem como explicar essas coisas sem ficar parecendo idiota, então vou só dizer que amo você.
+                        </span>
+                       
+                </span>
+            </span>
+        </button>
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fotoquatro.png" alt="Nossa foto 4">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Ainda tem muita coisa que eu quero fazer com você. A gente nem chegou perto de terminar nossa lista de coisas.
+                        </span>
+                       
+                    </span>
+                </span>
+            </span>
+        </button>
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fotocinco.png" alt="Nossa foto 5">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Eu gosto de guardar essas coisas. As fotos, as conversas, as lembranças. Acho que tenho medo de esquecer até as coisas pequenas.
+                        </span>
+                        
+                    </span>
+                </span>
+            </span>
+        </button>
+
+        <button class="polaroid" onclick="virarFoto(this)">
+            <span class="polaroid-lados">
+                <span class="polaroid-frente">
+                    <img src="fotoseis.png" alt="Nossa foto 6">
+                    <span class="legenda-foto"></span>
+                </span>
+                <span class="polaroid-verso">
+                    <span class="papel-bilhete">
+                        <span class="bilhete-texto">
+                            Enfim, mais uma foto nossa pra coleção. Espero que a gente tenha muitas outras pra colocar aqui.
+                        </span>
+                    
+                    </span>
+                </span>
+            </span>
+        </button>
+
+    </div>
+
+    <button class="botao-continuar-fotos" onclick="mostrarTela('tela-cartas')">
+    <img src="continuarbatao.png" alt="Continuar para as cartas">
+</button>
+</section>
+
+
+
+
+<!-- =====================================
+     CARTAS
+====================================== -->
+
+<section id="tela-cartas" class="tela">
+
+    <div class="placa-audio">
+
+        
+<button
+    class="botao-audio"
+    id="botao-audio"
+    onclick="reproduzirAudio()"
+    aria-label="Reproduzir áudio"
+>
+    <img src="botaoplay.png" alt="">
+</button>
+
+
+        <audio id="audio-cartas" src="audio-carta.ogg"></audio>
+
+    </div>
+
+    
+<button
+    class="botao-continuar-cartas"
+    onclick="mostrarTela('tela-final')"
+    aria-label="Continuar"
+>
+    <img src="continuarbatao.png" alt="">
+</button>
+
+</section>
+
+   
+<!-- =====================================
+     FINAL
+====================================== -->
+
+<section id="tela-final" class="tela">
+
+    <div class="caixa-texto">
+
+        <h1>
+            OIOIOII, BUDIA
+        </h1>
+
+        <p>
+            Feliz aniversário, meu amor!! Espero que seu dia seja tão lindo quanto você e que a vida te dê motivos pra sorrir mesmo nos dias mais difíceis. Sou muito feliz por ter você comigo e por poder acompanhar mais um ano da sua vida. Você é uma das pessoas mais importantes pra mim, e eu espero conseguir te fazer tão feliz quanto você me faz. Te amo mais do que consigo explicar e quero estar ao seu lado em muitos e muitos aniversários ainda.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
