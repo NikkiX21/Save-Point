@@ -1722,7 +1722,7 @@ function verificarEnigma2() {
 
 
 
-const portaCorreta = "B";
+const portaCorreta = "b";
 
 
 // ========================================
