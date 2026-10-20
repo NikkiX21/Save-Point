@@ -75,7 +75,7 @@ body {
 
 @font-face {
     font-family: "fontedois";
-    src: url("fontes/fontedois.ttf") format("truetype");
+    src: url("fontes/fontedois.TTF") format("truetype");
 }
 
 /* BOTÃO DA TELA INICIAL */
